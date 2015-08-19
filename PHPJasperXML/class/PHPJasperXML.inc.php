@@ -1871,7 +1871,11 @@ $this->pointer[]=array("type"=>"SetFont","font"=>$font."",
         if($filename=="")
             $filename=$this->arrayPageSetting["name"].".pdf";
 
-         $this->disconnect($this->cndriver);
+        if (in_array($this->cndriver, array("mysql", "psql", "odbc")))
+        {
+           $this->disconnect($this->cndriver);
+        }
+         
          $this->pdf->SetXY(10,10);
          //$this->pdf->IncludeJS($this->createJS());
          //($name, $w, $h, $caption, $action, $prop=array(), $opt=array(), $x='', $y='', $js=false)
@@ -5481,7 +5485,7 @@ $this->pdf->writeHTML($table);
         if(!file_exists($fileName))
             echo "File - $fileName does not exist";
         else {
-
+            /*
             $xmlAry = $this->xmlobj2arr(simplexml_load_file($fileName));
 			
             foreach($xmlAry[header] as $key => $value)
@@ -5489,6 +5493,22 @@ $this->pdf->writeHTML($table);
 
             foreach($xmlAry[detail][record]["$this->m"] as $key2 => $value2)
                 $this->arraysqltable["$this->m"]["$key2"]=$value2;
+             * 
+             */
+            
+            if ($dom_data = simplexml_load_file($fileName))
+            {
+                $arr_all_row = $dom_data->xpath(trim($this->sql));
+                $i=0;
+                foreach ($arr_all_row as $obj)
+                {
+                    foreach ($this->arrayfield as $field)
+                    {
+                        $this->arraysqltable[$i]["$field"] = trim($obj->$field);
+                    }               
+                    $i++;
+                }                
+            }//end if $dom_data
         }
 
       //  if(isset($this->arrayVariable))	//if self define variable existing, go to do the calculation
