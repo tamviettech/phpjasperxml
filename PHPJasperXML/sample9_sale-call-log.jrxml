@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d660f140-c4b9-42e1-b096-a29ae8a3a407">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="p_company_name" class="java.lang.String"/>
+	<queryString language="xPath">
+		<![CDATA[//row]]>
+	</queryString>
+	<field name="call" class="java.lang.String">
+		<fieldDescription><![CDATA[call]]></fieldDescription>
+	</field>
+	<field name="client" class="java.lang.String">
+		<fieldDescription><![CDATA[client]]></fieldDescription>
+	</field>
+	<field name="company" class="java.lang.String">
+		<fieldDescription><![CDATA[company]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<field name="time" class="java.lang.String">
+		<fieldDescription><![CDATA[time]]></fieldDescription>
+	</field>
+	<field name="note" class="java.lang.String">
+		<fieldDescription><![CDATA[note]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="65" width="555" height="37" uuid="18a8e0af-9a99-4476-8af1-2f25c1c287a0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sale Call Log]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="34" width="555" height="31" forecolor="#FF3333" uuid="43a1e431-86cb-493e-a65e-f7929f86b327"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_company_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="46" height="20" uuid="010c8d04-41e5-4200-9d91-86c3cb33ece0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Call #]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="0" width="132" height="20" uuid="41fcbee3-2c5c-439a-9d1a-8a54f6b7f090"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="0" width="100" height="20" uuid="178cb462-9ab5-46ad-b2b4-eedc81a13b70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="509" y="0" width="46" height="20" uuid="e9f0a96e-1b6b-4057-bbf8-637211bd7133"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Note]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="0" width="165" height="20" uuid="ec0003d2-f158-4f27-a347-75a3cda92bc9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Company]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="0" width="66" height="20" uuid="29e14bca-00e6-43d1-9850-572cbb54874f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Time]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="46" height="20" uuid="38bbeb40-9116-4966-9f79-4f59eb43a74d"/>
+				<textFieldExpression><![CDATA[$F{call}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="0" width="132" height="20" uuid="b3a3c55b-5667-41c3-a575-d7754527f66b"/>
+				<textFieldExpression><![CDATA[$F{client}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="0" width="165" height="20" uuid="c2fa3eaf-3a8f-4dfc-a54f-5d5b468841d4"/>
+				<textFieldExpression><![CDATA[$F{company}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="0" width="100" height="20" uuid="dd02e19d-5c22-4ba4-b3af-e65ae054ed22"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="0" width="66" height="20" uuid="e483c0f8-2cc4-4769-bfdd-1e5030c9e3b8"/>
+				<textFieldExpression><![CDATA[$F{time}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="509" y="0" width="46" height="20" uuid="fcefa2ff-c620-45f8-8218-3de4080df030"/>
+				<textFieldExpression><![CDATA[$F{note}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="4" width="100" height="20" uuid="d6661bff-d420-4a2e-be59-69f1d61c8cd7"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
