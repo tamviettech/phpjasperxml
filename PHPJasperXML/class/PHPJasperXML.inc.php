@@ -5370,7 +5370,16 @@ $this->pdf->writeHTML($table);
                         echo $fm."<br/><br/>";
                     }*/
 
-      eval("\$result= ".$fm.";");
+      //eval("\$result= ".$fm.";");
+	  if (is_numeric($fm))
+	  {
+			$str_eval = "\$result= '". strval($fm). "';";
+	  }
+	  else
+	  {
+		   $str_eval = "\$result= ". $fm. ";";
+	  }
+	  eval($str_eval);
 
     /*if(strpos($fm, "458.21")){
 
